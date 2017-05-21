@@ -1,0 +1,411 @@
+/* CSS Reset:
+
+	 http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*CSS reset end*/
+
+/*Custom styles:*/
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  font-size: 12px;
+  font-size: .75em;
+	background-color: white;
+}
+/*Changing bootstrap -15px margin to -1em:*/
+.row {
+  margin-left: -1em;
+  margin-right: -1em;
+}
+h1, h2, h3 {
+  font-weight: bold;
+  padding: 0.25rem 0;
+}
+h1 {
+  font-size: 2rem;
+  font size: 32px;
+	color: #47476b;
+}
+h2 {
+  font-size: 1.5rem;
+  font size: 24px;
+	color:  #5c5c8a;
+}
+h3 {
+  font-size: 1rem;
+  font size: 16px;
+	color: #7575a3;
+}
+.title {
+  padding: 1rem 0;
+	position: relative;
+}
+header {
+  border-bottom: 1px solid black;
+	height: auto;
+	width: auto;
+  padding: 2em 0;
+}
+.main {
+  padding-top: 1em;
+  padding-bottom: 2em;
+	background-color: #f2f2f2;
+}
+.main-catalogue {
+  border-left: 1px solid black;
+  margin: 0;
+  height: 100%;
+}
+footer {
+  border-top: 1px solid black;
+}
+.app-container {
+}
+.tabs {
+  padding: 0 1em;
+}
+.tab {
+  border: 1px solid black;
+  border-radius: 15px 15px 0 0;
+  height: 2rem;
+  padding: .5rem 1rem;
+  text-align: center;
+  font-weight: bold;
+	cursor: pointer;
+}
+.tab:first-child {
+  background-color: #e6ccff;
+}
+.tab:nth-child(2) {
+  background-color: #ce99ff;
+}
+.tab:nth-child(3) {
+  background-color: #b566ff;
+}
+.tab:nth-child(4) {
+  background-color: #9c33ff;
+}
+.tab:nth-child(5) {
+  background-color: #8400ff;
+}
+.tab:nth-child(6) {
+  background-color: #6900cc;
+	color: white;
+	animation: newBooks 2s linear infinite;
+	animation-delay: 3s;
+	animation-timing-function: ease-in-out;
+}
+@keyframes newBooks {
+	50% { color: #8400ff }
+}
+.selected {
+  background-color: #990099 !important;
+  color: white;
+}
+.cell{
+  display: table-cell;
+  vertical-align: middle;
+  font-size: .65rem;
+  padding: .5rem;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  height: auto;
+  margin: 0 auto;
+}
+.row-header {
+  background-color: #7575a3;
+  font-weight: bold;
+}
+.row-header, .row-entry {
+  margin: 0;
+}
+.row-entry .cell:last-child {
+  padding: .5rem 0;
+  color: blue;
+  text-align: center;
+	cursor: pointer;
+}
+.row-entry:nth-child(odd) {
+  background-color: #e0e0eb;
+}
+.row-entry .cell:nth-child(3) {
+	text-align: right;
+}
+.resp_placeholder {
+	display: none;
+}
+.cart-box {
+	position: absolute;
+	top: 1.5rem;
+	right: 0;
+	float: right;
+	padding: 2rem;
+}
+.floating-container {
+	position: absolute;
+	top: 1rem;
+	right: .5rem;
+	float: right;
+}
+.cart-box-counter {
+	display: inline;
+	float: right;
+	width: auto;
+	height: auto;
+	text-align: center;
+	text-overflow: ellipsis;
+	margin: 0;
+	padding: .75rem 1rem;
+	background-color:  #d9d9d9;
+	border: 1px solid #990099;
+  border-radius: 4px;
+	cursor: pointer;
+
+}
+.cart-box-text {
+	position: relative;
+	display: inline;
+	float: left;
+	padding: .25rem;
+	text-overflow: ellipsis;
+	text-align: center;
+	width: auto;
+	height: auto;
+	margin: .5rem;
+}
+.searchform {
+	padding: 1rem;
+}
+.searchform * {
+	display: inline;
+}
+input[name="searchfield"] {
+	height: 2.5rem;
+	width: 55% !important;
+	font-family: FontAwesome;
+}
+::placeholder {
+	font-style: italic;
+}
+.loading {
+	padding: 2rem;
+	font-size: 32px;
+	font-style: italic;
+	text-align: center;
+  animation: blinker 0.5s linear infinite;
+}
+@keyframes blinker {
+  50% { opacity: 0; }
+}
+.addBookWindow {
+	z-index: 1;
+	position: fixed;
+	top: 40vh;
+	left:15vw;
+	background-color: white;
+	padding: 0;
+	border: 3px solid #990099;
+	display: flex;
+	flex-direction: column;
+}
+.popup-top {
+	align-self: flex-start;
+	width: 100%;
+	height: 100%;
+	padding: .75rem 1rem;
+}
+.popup-title {
+	display: inline;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+.popup-close {
+	display: inline;
+	float: right;
+	color: black;
+}
+.popup-close:hover {
+	color: #990099;
+	cursor: pointer;
+}
+input {
+	border: 1px solid #990099;
+	 border-radius: 4px;
+	 padding: 5px 10px;
+}
+input[type=text], input[type=number], select {
+	width: 70%;
+}
+input[name=title] {
+	background-color: #d9d9d9;
+}
+#ok_button, #cancel_button {
+	display: inline;
+	margin: 1rem;
+	width: 80px ;
+	background-color: #990099;
+	color: white;
+	float: right;
+}
+#addBookForm, #cartForm {
+	position: relative;
+	clear: both;
+	display: block;
+	width: 100%;
+}
+fieldset * {
+	display: block;
+}
+fieldset {
+	margin: 2rem 0 1rem 0;
+	padding-top: .75rem;
+	border-top: 1px solid #990099;
+}
+label * {
+	display: inline-block;
+	margin: .5rem 0;
+}
+label h3 {
+	width: 20%;
+	text-align: right;
+	margin-right: .5rem;
+}
+.popup-bottom {
+	border-top: 1px solid #990099;
+	width: 100%;
+	display: block;
+	bottom: 0;
+	margin: 0;
+	align-self: flex-end;
+}
+.popup {
+	display: none;
+}
+.cart-popup {
+display: block;
+clear: both;
+width: 100%;
+}
+
+.cart-item {
+	flex-direction: column;
+	justify-content: space-around;
+	width: 100%;
+	border-top: 1px solid #990099;
+	display: block;
+}
+.item-main * {
+	display: inline;
+	font-weight: bold;
+}
+.item-main, .item-details {
+	padding: .5rem 1rem;
+	display: block;
+}
+
+
+
+/*Custom media querry:*/
+
+@media (max-width: 767px) {
+	.cart-box {
+		margin-right: 1rem;
+		padding: .5rem 0;
+	}
+	.cart-box-text, .cart-box-counter {
+    display: block;
+		width: auto;
+  }
+	.cart-box-text p {
+		margin-bottom: .5rem;
+		margin-left: 2rem;
+		text-align: center;
+	}
+	h1 {
+	  font-size: 1.5rem;
+	  font size: 24px;
+	}
+	h2 {
+	  font-size: 1rem;
+	  font size: 16px;
+	}
+	h3 {
+	  font-size: .75rem;
+	  font size: 12px;
+	}
+	.tab {
+		font-size: 11px;
+		padding: 8px;
+		text-align: center;
+	}
+	.row-header {
+		display: none;
+	}
+	.cell {
+		height: 3rem;
+		text-align: center;
+	}
+	.resp_placeholder {
+		display: inline;
+		position: relative;
+		float: left;
+		font-size: .65rem;
+		font size: 11px;
+		color: #ccb3ff;
+		font-style: italic;
+	}
+	.cart-item {
+		flex-direction: column;
+	}
+}

@@ -1,0 +1,33 @@
+<!--Template used to build "Cart" popup window  -->
+
+
+
+    <!--Template used to build "Cart" popup window  -->
+
+
+    <div class="col-xs-8 cart-popup">
+      <div class="popup-top">
+        <div class="popup-close" ng-click="closeCart()">
+          <h2>x</h2>
+        </div>
+        <div class="popup-title">
+          <h2>Twój koszyk</h2>
+          <h3>Masz <span>{{ countBooks() }}</span> produkt(ów) na łączną kwotę <span> {{countTotalPrice() | currency : "" : 2}}</span> zł.</h3>
+        </div>
+      </div>
+      <div class="cart-item" ng-controller="SampleController"
+      ng-repeat="orders in orders | orderBy:'orders.book.name' ">
+        <div class="item-main">
+          <h3>{{orders.book.name}} </h3>
+          <p>{{orders.book.author}}</p>
+        </div>
+        <div class="item-details">
+          <p> Cena: {{orders.book.price | currency : "" : 2}} zł | Ilość: {{orders.quantity}} | Wybrany nośnik: {{orders.media}} </p>
+        </div>
+      </div>
+      <form id="cartForm">
+        <fieldset class="popup-bottom">
+          <input type="submit" value="Zamknij" id="ok_button" ng-click="closeCart()"></input>
+        </fieldset>
+      </form>
+    </div>

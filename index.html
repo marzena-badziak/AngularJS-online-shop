@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/favicon.ico" sizes="16x16">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <!-- Bootstrap CSS: -->
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Fontawesome link: -->
+  <link rel="stylesheet" href="node_modules/fontawesome/css/font-awesome.min.css">
+  <!-- Custom CSS: -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Księgarnia internetowa</title>
+</head>
+
+<body>
+
+  <div ng-app="catalogueApp" ng-controller="MainController" ng-cloak>
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-xs-6 title">
+          <h1>Księgarnia internetowa</h1>
+          <h3>Książki w wersji elektronicznej</h3>
+        </div>
+        <div class="col-md-5 col-xs-12 searchform">
+          <form>
+            <label>Wyszukiwarka:</label>
+            <input placeholder="&#xf002; znajdź tytuł lub autora" name="searchfield" type="text"
+            maxlength="200" ng-model="search">
+            </input>
+            <input type="submit" value="szukaj" id="search_button"></input>
+          </form>
+        </div>
+        <div class="col-md-3 col-xs-6 cart-box">
+          <div class="floating-container">
+            <div class="cart-box-text">
+              <p>Twój koszyk:</p>
+            </div>
+          <div class="cart-box-counter" ng-controller="SampleController" ng-click="openCart()">
+            <p>Liczba produktów: {{ countBooks() }}</p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="main">
+
+    <div class="container">
+
+
+        <div class="col-xs-8 cart-popup">
+          <div class="popup-top">
+            <div class="popup-close" ng-click="closeCart()">
+              <h2>x</h2>
+            </div>
+            <div class="popup-title">
+              <h2>Twój koszyk</h2>
+              <h3>Masz <span>{{ countBooks() }}</span> produkt(ów) na łączną kwotę <span> {{countTotalPrice() | currency : "" : 2}}</span> zł.</h3>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="cart-item" ng-controller="SampleController"
+          ng-repeat="orders in orders | orderBy:'orders.book.name' ">
+            <div class="item-main">
+              <h3>{{orders.book.name}} </h3>
+              <p>{{orders.book.author}}</p>
+            </div>
+            <div class="item-details">
+              <p> Cena: {{orders.book.price | currency : "" : 2}} zł | Ilość: {{orders.quantity}} | Wybrany nośnik: {{orders.media}} </p>
+            </div>
+          </div>
+          <form id="cartForm">
+            <fieldset class="popup-bottom">
+              <input type="submit" value="Zamknij" id="ok_button" ng-click="closeCart()"></input>
+            </fieldset>
+          </form>
+        </div>
+
+      <div class="row">
+
+
+        <div class="col-xs-12 title">
+          <h2>Katalog książek</h2>
+        </div>
+      </div>
+    </div>
+    <div class="app-container">
+      <div class="container">
+        <div class="row">
+          <div class="tabs">
+          <div class="col-xs-2 tab" ng-class="{selected: isSet(1)}" ng-click="filterBooks({type : ''}, 1)">
+            <span class="menu-tab">
+              Wszystkie
+            </span>
+          </div>
+          <div class="col-xs-2 tab" ng-class="{selected: isSet(2)}" ng-click="filterBooks({type : 'audiobook'}, 2)">
+            <span class="menu-tab">
+              Audiobooki
+            </span>
+          </div>
+          <div class="col-xs-2 tab" ng-class="{selected: isSet(3)}" ng-click="filterBooks({type : 'ebook'}, 3)">
+            <span class="menu-tab">
+              E-booki
+            </span>
+          </div>
+          <div class="col-xs-2 tab" ng-class="{selected: isSet(4)}" ng-click="filterBooks({ type : ''}, 4, 'new')">
+            <span class="menu-tab">
+              Nowości
+            </span>
+          </div>
+          <div class="col-xs-2 tab" ng-class="{selected: isSet(5)}" ng-click="filterBooks({ type : '' }, 5, 'upcoming')">
+            <span class="menu-tab">
+              Zapowiedzi
+            </span>
+          </div>
+          <div class="col-xs-2 tab" ng-class="{selected: isSet(6)}" ng-click="filterBooks({specialOffer : 'true'}, 6)">
+            <span class="menu-tab">
+              Super okazje
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="container">
+      <div class="row main-catalogue">
+        <div class="row row-header">
+          <div class="col-md-4 col-sm-3 cell">
+              Nazwa
+            </div>
+          <div class="col-md-2 col-sm-2 cell">
+              Data wydania
+            </div>
+          <div class="col-md-1 col-sm-1 cell">
+              Cena
+            </div>
+          <div class="col-md-2 col-sm-3 cell">
+              Autor
+            </div>
+          <div class="col-md-2 col-sm-2 cell">
+              Wydawnictwo
+            </div>
+          <div class="col-md-1 col-sm-1 cell">
+            &nbsp
+          </div>
+        </div>
+        <div class="row row-entry" ng-controller="SampleController" ng-repeat="book in books | orderBy:'name' | filter: usedFilter | filter : filterDate | filter : searchFilter">
+          <div class="col-md-4 col-sm-3 col-xs-6 cell">
+            <div class="resp_placeholder">
+              Nazwa
+            </div>
+              {{book.name}}
+          </div>
+          <div class="col-md-2 col-sm-2 col-xs-3 cell">
+            <div class="resp_placeholder">
+              Data wydania
+            </div>
+            {{book.publ_date | date}}
+          </div>
+          <div class="col-md-1 col-sm-1 col-xs-3 cell">
+            <div class="resp_placeholder">
+              Cena
+            </div>
+              {{book.price | currency : "" : 2}} zł
+            </div>
+          <div class="col-md-2 col-sm-3 col-xs-6 cell">
+            <div class="resp_placeholder">
+              Autor
+            </div>
+              {{book.author}}
+            </div>
+          <div class="col-md-2 col-sm-2 col-xs-3 cell">
+            <div class="resp_placeholder">
+              Wydawnictwo
+            </div>
+              {{book.publisher}}
+            </div>
+          <div class="col-md-1 col-sm-1 col-xs-3 cell" ng-click="showAddToCart(book)">
+              do koszyka
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+
+
+    <div class="loading">loading...</div>
+
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 title">
+          <h3>made by Marzena Badziak</h3>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="./node_modules/angular/angular.min.js"></script>
+  <script src="./node_modules/angular-modal-service/src/angular-modal-service.js"></script>
+  <script src='js/app.js'></script>
+  <script src='js/modalController.js'></script>
+  <!-- <script src="js/catalogueApp.js"></script> -->
+  <script src="js/mainController.js"></script>
+
+
+</body>
+</html>

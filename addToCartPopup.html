@@ -1,0 +1,38 @@
+<!--Template used to build "Add to cart" popup window  -->
+
+
+<div class="col-xs-8 addBookWindow popup">
+
+  <div class="popup-top">
+    <div class="popup-title">
+      <h2>Dodaj do koszyka</h2>
+    </div>
+    <div class="popup-close" ng-click="closeAddToCart()">
+      <h2>x</h2>
+    </div>
+  </div>
+
+  <form name="addForm" id="addBookForm">
+    <fieldset>
+      <label><h3>Tytuł:</h3>
+        <input type="text" name="title" ng-model="book.name" ng-value="book.name" ng-readonly="book.name">
+        </input>
+      </label>
+      <label for="media_type"><h3>Nośnik:</h3>
+        <select name="media_type" ng-model="media" required>
+          <option value="">---wybierz---</option>
+          <option ng-repeat="media in possibleMedia">{{media}}</option>
+        </select>
+      </label>
+      <label for="quantity"><h3>Ilość:</h3>
+        <input type="number" name="quantity" min="1" max="999" step="1" value="1" required ng-model="quantity" placeholder="wybierz ilość">
+        </input>
+      </label>
+    </fieldset>
+    <fieldset class="popup-bottom">
+      <input type="submit" value="OK" id="ok_button" ng-click="close()" ng-disabled="addForm.$invalid"></input>
+      <input type="submit" value="anuluj" id="cancel_button" ng-click="closeAddToCart()"></input>
+    </fieldset>
+  </form>
+
+</div>

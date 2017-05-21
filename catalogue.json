@@ -1,0 +1,101 @@
+[
+  {
+    "name" : "The Lightning Thief",
+    "author" : "Rick Riordan",
+    "price" : 12.50,
+    "type" : "audiobook",
+    "publisher" : "publisher1",
+    "publ_date" : "2012-04-23T18:25:43.511Z"
+  }
+,
+  {
+    "name" : "The Sea of Monsters",
+    "author" : "Rick Riordan",
+    "price" : 6.49,
+    "type" : "audiobook",
+    "publisher" : "publisher1",
+    "publ_date" : "2010-01-13T18:25:43.511Z"
+  }
+,
+  {
+    "name" : "Sophie's World : The Greek Philosophers",
+    "author" : "Jostein Gaarder",
+    "price" : 3.07,
+    "type" : "e-book",
+    "publisher" : "publisher3",
+    "publ_date" : "1992-12-20T18:25:43.511Z"
+  }
+,
+  {
+    "name" : "Lucene in Action, Second Edition",
+    "author" : "Michael McCandless",
+    "price" : 30.50,
+    "type" : "audiobook",
+    "publisher" : "publisher2",
+    "publ_date" : "2014-05-22T18:25:43.511Z"
+  }
+,
+  {
+    "name" : "Lucene in Action, First Edition",
+    "author" : "Michael McCandless",
+    "price" : 20.50,
+    "type" : "e-book",
+    "publisher" : "publisher4",
+    "publ_date" : "2010-05-22T18:25:43.511Z"
+  }
+,
+  {
+    "name" : "Dzienniki Gwiazdowe",
+    "author" : "Stanisław Lem",
+    "price" : 60.50,
+    "type" : "e-book",
+    "publisher" : "PWN",
+    "publ_date" : "1984-05-22T18:25:43.511Z"
+  }
+,
+  {
+    "name" : "Solaris",
+    "author" : "Stanisław Lem",
+    "price" : 29.50,
+    "type" : "e-book",
+    "publisher" : "PWN",
+    "publ_date" : "1966-05-02T18:25:43.511Z"
+  }
+,
+  {
+    "name" : "Silmarillion",
+    "author" : "J. R. R. Tolkien",
+    "price" : 199.99,
+    "type" : "e-book",
+    "publisher" : "PWN",
+    "publ_date" : "1976-05-02T18:25:43.511Z"
+  }
+,
+  {
+    "name" : "Tajemnicza wyspa",
+    "author" : "Juliusz Verne",
+    "price" : 39.00,
+    "type" : "e-book",
+    "publisher" : "PWN",
+    "publ_date" : "1896-05-02T18:25:43.511Z"
+  }
+,
+  {
+    "name" : "Wyprawa do wnętrza Ziemi",
+    "author" : "Juliusz Verne",
+    "price" : 19.99,
+    "type" : "audiobook",
+    "publisher" : "PWN",
+    "publ_date" : "2016-09-09T18:25:43.511Z"
+  }
+,
+{
+  "name" : "Władca Pierścieni",
+  "author" : "J. R. R. Tolkien",
+  "price" : 99.99,
+  "type" : "audiobook",
+  "publisher" : "PWN",
+  "publ_date" : "2015-05-21T18:25:43.511Z"
+}
+
+]
